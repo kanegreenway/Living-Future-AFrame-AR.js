@@ -1,3 +1,5 @@
+import * as THREE from '/three/build/three.module.js';
+
 function isMobile() {
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         // true for mobile device
