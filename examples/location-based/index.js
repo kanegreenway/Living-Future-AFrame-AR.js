@@ -32,10 +32,8 @@ let first = true;
 
 threex.on("gpsupdate", pos => {
     console.log('gpsupdate');
-    if(first) {
-        setupObjects(pos.coords.longitude, pos.coords.latitude);
-        first = false;
-    }
+    setupObjects(pos.coords.longitude, pos.coords.latitude);
+    first = false;
 });
 
 threex.on("gpserror", code => {
