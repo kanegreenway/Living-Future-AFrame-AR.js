@@ -23,6 +23,8 @@
         <img id="grid" src="images/color-grid.png">
       </a-assets>
       
+      <a-camera id="player" gps-camera rotation-reader> </a-camera>
+      
       <!--<a-sphere color="cyan" height="5" material="blending: additive;" glow="scale: 1.2;color: purple;c:0.2; p:1.5;" gps-entity-place="latitude: 52.321445; longitude: -1.973791;"></a-sphere>--->
       <!-- simulated glow on a sphere + animated pulse effect -->
       <a-entity id="glowPulse" gps-entity-place="latitude: 52.321445; longitude: -1.973791;"
@@ -32,7 +34,6 @@
         <a-image width="2" height="2" src="#glow" look-at="#player" color="yellow" material="transparent: true; opacity: 1.0; alphaTest: 0.01;"
         animation__pulse="property: material.opacity; from: 1.0; to: 0.0; dur: 1000; loop: true; dir: alternate; easing: linear;"></a-image>
       </a-entity>
-      <a-camera id="player" gps-camera rotation-reader> </a-camera>
     </a-scene>
   </body>
 </html>
