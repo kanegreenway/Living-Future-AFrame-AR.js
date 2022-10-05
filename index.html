@@ -101,16 +101,15 @@
         entity.components.sound.playSound();
 
         console.log(playingMusic);
-        console.log(playingMusic == false);
         //entity.components.animation-mixer.startFrame(0);
-        entity.setAttribute('animation-mixer', {time: 0});
-        document.getElementById("music-button").innerHTML = "Stop Music!";
+        //entity.setAttribute('animation-mixer', {time: 0});
+        entity['animation-mixer'].setTime(0);
+        document.getElementById("music-button").innerHTML = "Stop Music";
         playingMusic = true;
       } else {
         entity.components.sound.stopSound();
         console.log(playingMusic);
-        console.log(playingMusic == false);
-        document.getElementById("music-button").innerHTML = "Play Music!";
+        document.getElementById("music-button").innerHTML = "Play Music";
         playingMusic = false;
       }
     });
