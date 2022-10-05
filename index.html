@@ -78,6 +78,7 @@
           <img id="glow" src="images/glow.png">
           <img id="grid" src="images/color-grid.png">
           <a-asset-item id="audio-bars" src="models/Audio-Bars.gltf"></a-asset-item>
+          <audio id="audio" src="music/Daft-Punk-End-of-Line.mp3" preload="auto"></audio>
         </a-assets>
 
         <a-camera light="type: ambient; intensity: 1.2;" id="player" gps-camera rotation-reader> </a-camera>
@@ -85,7 +86,7 @@
         <!--<a-sphere color="cyan" height="5" material="blending: additive;" glow="scale: 1.2;color: purple;c:0.2; p:1.5;" gps-entity-place="latitude: 52.321445; longitude: -1.973791;"></a-sphere>--->
         <!-- simulated glow on a sphere + animated pulse effect -->
 
-        <a-entity gltf-model="#audio-bars" scale="0.2 0.2 0.2" animation-mixer look-at="#player"></a-entity>
+        <a-entity gltf-model="#audio-bars" scale="0.2 0.2 0.2" animation-mixer look-at="#player" sound="src: #audio; autoplay: false;"></a-entity>
         <a-sphere position="0 -0.7 0" radius="0.75" add-objects cloak> </a-sphere>
       </a-scene>
     </div>
@@ -93,7 +94,7 @@
       <button class="music-button" onclick="playMusic()">Play Music</button>
     </div>
     <script>
-      function playerMusic() {
+      function playMusic() {
         console.log("play music");
       }
     </script>
