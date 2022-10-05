@@ -87,17 +87,22 @@
       <!--<a-sphere color="cyan" height="5" material="blending: additive;" glow="scale: 1.2;color: purple;c:0.2; p:1.5;" gps-entity-place="latitude: 52.321445; longitude: -1.973791;"></a-sphere>--->
       <!-- simulated glow on a sphere + animated pulse effect -->
 
-    <a-entity gltf-model="#audio-bars" scale="0.2 0.2 0.2" animation-mixer look-at="#player" sound="src: #audio; autoplay: false; volume: 2;"></a-entity>
+    <a-entity id="music-visualiser" gltf-model="#audio-bars" scale="0.2 0.2 0.2" animation-mixer look-at="#player" sound="src: #audio; autoplay: false; volume: 2;"></a-entity>
     <a-sphere position="0 -0.7 0" radius="0.75" add-objects cloak> </a-sphere>
     </a-scene>
     <button class="music-button">Play Music</button>
   </body>
   <script>
+    var playingMusic = false;
     document.querySelector('.music-button').addEventListener('click', function (evt) {
       console.log('play music mk II');
-      var entity = document.querySelector('a-entity');
-      entity.components.sound.playSound();
-      entity.components.animation-mixer.startFrame(0);
+      var entity = document.querySelector('#music-visualiser');
+      if (playingMusic == false) {
+        entity.components.sound.playSound();
+        entity.components.animation-mixer.startFrame(0);
+      } else {
+        entity.components.sound.stopSound();
+      }
     });
   </script>
 </html>
