@@ -52,22 +52,24 @@
       }
     })
     </script>
-    
-    <a-scene renderer="sortObjects: true;" vr-mode-ui="enabled: false" embedded arjs="sourceType: webcam; debugUIEnabled: false;" gps-entity-place="latitude: 52.321445; longitude: -1.973791;">
-      
-      <a-assets>
-        <img id="glow" src="images/glow.png">
-        <img id="grid" src="images/color-grid.png">
-        <a-asset-item id="audio-bars" src="models/Audio-Bars.gltf"></a-asset-item>
-      </a-assets>
-      
-      <a-camera light="type: ambient; intensity: 1.2;" id="player" gps-camera rotation-reader> </a-camera>
-      
-      <!--<a-sphere color="cyan" height="5" material="blending: additive;" glow="scale: 1.2;color: purple;c:0.2; p:1.5;" gps-entity-place="latitude: 52.321445; longitude: -1.973791;"></a-sphere>--->
-      <!-- simulated glow on a sphere + animated pulse effect -->
-      
-      <a-entity gltf-model="#audio-bars" scale="0.2 0.2 0.2" animation-mixer look-at="#player"></a-entity>
-      <a-sphere position="0 -0.7 0" radius="0.75" add-objects cloak> </a-sphere>
-    </a-scene>
+    <div id="myEmbeddedScene" style="height: 85%">
+      <a-scene renderer="sortObjects: true;" vr-mode-ui="enabled: false" embedded arjs="sourceType: webcam; debugUIEnabled: false;" gps-entity-place="latitude: 52.321445; longitude: -1.973791;">
+
+        <a-assets>
+          <img id="glow" src="images/glow.png">
+          <img id="grid" src="images/color-grid.png">
+          <a-asset-item id="audio-bars" src="models/Audio-Bars.gltf"></a-asset-item>
+        </a-assets>
+
+        <a-camera light="type: ambient; intensity: 1.2;" id="player" gps-camera rotation-reader> </a-camera>
+
+        <!--<a-sphere color="cyan" height="5" material="blending: additive;" glow="scale: 1.2;color: purple;c:0.2; p:1.5;" gps-entity-place="latitude: 52.321445; longitude: -1.973791;"></a-sphere>--->
+        <!-- simulated glow on a sphere + animated pulse effect -->
+
+        <a-entity gltf-model="#audio-bars" scale="0.2 0.2 0.2" animation-mixer look-at="#player"></a-entity>
+        <a-sphere position="0 -0.7 0" radius="0.75" add-objects cloak> </a-sphere>
+      </a-scene>
+    </div>
+    <div style="background-color: orangered; bottom: 2px; height: 15%; width: 100%;"></div>
   </body>
 </html>
