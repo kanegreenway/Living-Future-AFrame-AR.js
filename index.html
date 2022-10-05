@@ -16,24 +16,57 @@
 
   </head>
   <body>
-    <a-scene renderer="sortObjects: true;" vr-mode-ui="enabled: false" embedded arjs="sourceType: webcam; debugUIEnabled: false;">
+    <script>
+      AFRAME.registerComponent('add-objects', {
+      init: function() {
+        let thisMesh = this.el.getObject3D('mesh')
+
+        let boxGeometry = new THREE.BoxGeometry(30, 1.5, 30);
+
+        let boxMaterial = new THREE.MeshBasicMaterial({
+          color: "#FF00FF"
+        })
+        let mesh = new THREE.Mesh(boxGeometry, boxMaterial)
+
+        var group = new THREE.Group();
+
+        group.add(mesh)
+        thisMesh.add(group)
+      }
+    })
+
+    AFRAME.registerComponent('cloak', {
+      init: function() {
+        let mesh = this.el.getObject3D('mesh')
+        if (mesh !== undefined) {
+          mesh.traverse(function(node) {
+            if (node.isMesh) {
+              if (node.material) {
+                node.material.colorWrite = false
+                node.material.needsUpdate = true;
+              }
+            }
+          });
+        }
+      }
+    })
+    </script>
+    
+    <a-scene renderer="sortObjects: true;" vr-mode-ui="enabled: false" embedded arjs="sourceType: webcam; debugUIEnabled: false;" gps-entity-place="latitude: 52.321445; longitude: -1.973791;">
       
       <a-assets>
         <img id="glow" src="images/glow.png">
         <img id="grid" src="images/color-grid.png">
+        <a-asset-item id="audio-bars" src="models/Audio-Bars.gltf"></a-asset-item>
       </a-assets>
       
       <a-camera id="player" gps-camera rotation-reader> </a-camera>
       
       <!--<a-sphere color="cyan" height="5" material="blending: additive;" glow="scale: 1.2;color: purple;c:0.2; p:1.5;" gps-entity-place="latitude: 52.321445; longitude: -1.973791;"></a-sphere>--->
       <!-- simulated glow on a sphere + animated pulse effect -->
-      <a-entity id="glowPulse" gps-entity-place="latitude: 52.321445; longitude: -1.973791;"
-        animation__spin="property: rotation; from: 0 0 0; to: 0 360 0; dur: 4000; loop: true; easing: linear;">
-        <a-sphere radius="0.5" material="src: #grid; emissive: yellow; emissive-intensity: 0.5;"
-        animation__pulse="property: material.emissiveIntensity; from: 0.5; to: 0.0; dur: 1000; loop: true; dir: alternate; easing: linear;"></a-sphere>
-        <a-image width="2" height="2" src="#glow" look-at="#player" color="yellow" material="transparent: true; opacity: 1.0; alphaTest: 0.01;"
-        animation__pulse="property: material.opacity; from: 1.0; to: 0.0; dur: 1000; loop: true; dir: alternate; easing: linear;"></a-image>
-      </a-entity>
+      
+      <a-entity gltf-model="#audio-bars" scale="0.2 0.2 0.2" animation-mixer></a-entity>
+      <a-sphere position="0 -0.7 0" radius="0.75" add-objects cloak> </a-sphere>
     </a-scene>
   </body>
 </html>
