@@ -97,6 +97,7 @@
       console.log('play music mk II');
       var entity = document.querySelector('a-entity');
       entity.components.sound.playSound();
+      entity.components.animation-mixer.startFrame(0);
     });
   </script>
 </html>
