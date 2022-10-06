@@ -21,12 +21,12 @@
       }
       .frame {
         width: 100%;
-        height: 82%;
+        height: 81%;
         border: none;
       }
       .header{
         width: 100%;
-        height: 8%;
+        height: 10%;
         background-color: black;
         border-bottom: 0.5px solid white;
         display: flex;
@@ -70,7 +70,7 @@
       }
       .footer {
         width: 100%;
-        height: 10%;
+        height: 9%;
         background-color: black;
         position: relative;
       }
@@ -85,7 +85,7 @@
       }
       #invest-button {
         height: 70%;
-        width: 300px;
+        width: 220px;
         right: 20px;
         margin: 0;
         position: absolute;
@@ -94,7 +94,7 @@
         background-color: black;
         color: white;
         font-family: Helvetica, Sans-Serif;
-        font-size: 22px;
+        font-size: 16px;
         border: 2px solid white;
         border-radius: 15px;
         cursor: pointer;
@@ -161,8 +161,8 @@
     </div>
     <div class="footer">
       <!--<button id="music-button">Play Music</button>--->
-      <input id="music-button" type="image" src="images/Play-Icon.svg" />
-      <button id="invest-button"><p style="white-space:pre; margin-top: 15px;">I N V E S T   N O W !</p></button>
+      <input id="music-button" type="image" src="images/Mute-Icon.svg" />
+      <button id="invest-button"><p style="white-space:pre; margin-top: 7%;">I N V E S T   N O W !</p></button>
     </div>
   </body>
   <script>
@@ -180,12 +180,12 @@
         entity.setAttribute('animation-mixer','clip: stop;');
         entity.setAttribute('animation-mixer','clip: *;');
         //entity.components['animation-mixer'].setTime(0);
-        document.getElementById("music-button").src="images/Mute-Icon.svg";
+        document.getElementById("music-button").src="images/Play-Icon.svg";
         playingMusic = true;
       } else {
         entity.components.sound.stopSound();
         console.log(playingMusic);
-        document.getElementById("music-button").src="images/Play-Icon.svg";
+        document.getElementById("music-button").src="images/Mute-Icon.svg";
         playingMusic = false;
       }
     });
