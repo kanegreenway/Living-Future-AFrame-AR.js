@@ -14,31 +14,54 @@
     <!--<script src="js/aframe-render-order-component.min.js"></script>--->
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
     <style>
+      body {
+        margin: 0px 0px 0px 0px !important;
+        width: 100% !important;
+        height: 100% !important;
+      }
       .frame {
         width: 100%;
-        height: 100%;
+        height: 82%;
         border: none;
       }
-      .footer {
-        background-color: orangered;
-        bottom: 0px;
-        height: 8%;
+      .header{
         width: 100%;
-        position: absolute;
-        border-top: 3px solid red;
+        height: 8%;
+        background-color: black;
+        border-bottom: 0.5px solid white;
+      }
+      .footer {
+        width: 100%;
+        height: 10%;
+        background-color: black;
+        position: relative;
       }
       #music-button {
-        width: 50px;
-        height: 50px;
+        height: 70%;
+        width: auto;
+        margin: 0;
+        margin-left: 20px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      #invest-button {
+        height: 70%;
+        width: 300px;
+        right: 20px;
         margin: 0;
         position: absolute;
-        bottom: 10px;
-        right: 10px;
-        z-index: 9999;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: black;
+        color: white;
+        font-family: Helvetica, Sans-Serif;
+        border: 2px solid white;
+        border-radius: 15px;
       }
     </style>
   </head>
-  <body style="margin: 0px;">
+  <body>
     <script>
       AFRAME.registerComponent('add-objects', {
       init: function() {
@@ -74,23 +97,32 @@
       }
     })
     </script>
-    <a-scene embedded renderer="sortObjects: true;" vr-mode-ui="enabled: false" embedded arjs="sourceType: webcam; debugUIEnabled: false;" gps-entity-place="latitude: 52.321445; longitude: -1.973791;">
-      <a-assets>
-        <img id="glow" src="images/glow.png">
-        <img id="grid" src="images/color-grid.png">
-        <a-asset-item id="audio-bars" src="models/Audio-Bars.gltf"></a-asset-item>
-        <audio id="audio" src="music/Daft-Punk-End-of-Line.mp3" preload="auto"></audio>
-      </a-assets>
+    <div class="header">
 
-      <a-camera light="type: ambient; intensity: 1.2;" id="player" gps-camera rotation-reader> </a-camera>
+    </div>
+    <div class="frame">
+      <a-scene embedded style="height: 100%;" renderer="sortObjects: true;" vr-mode-ui="enabled: false" embedded arjs="sourceType: webcam; debugUIEnabled: false;" gps-entity-place="latitude: 52.321445; longitude: -1.973791;">
+        <a-assets>
+          <img id="glow" src="images/glow.png">
+          <img id="grid" src="images/color-grid.png">
+          <a-asset-item id="audio-bars" src="models/Audio-Bars.gltf"></a-asset-item>
+          <audio id="audio" src="music/Daft-Punk-End-of-Line.mp3" preload="auto"></audio>
+        </a-assets>
 
-      <!--<a-sphere color="cyan" height="5" material="blending: additive;" glow="scale: 1.2;color: purple;c:0.2; p:1.5;" gps-entity-place="latitude: 52.321445; longitude: -1.973791;"></a-sphere>--->
-      <!--sd simulated glow on a sphere + animated pulse effect -->
+        <a-camera light="type: ambient; intensity: 1.2;" id="player" gps-camera rotation-reader> </a-camera>
 
-    <a-entity id="music-visualiser" gltf-model="#audio-bars" scale="0.2 0.2 0.2" animation-mixer look-at="#player" sound="src: #audio; autoplay: false; volume: 2;"></a-entity>
-    <a-sphere position="0 -0.7 0" radius="0.75" add-objects cloak> </a-sphere>
-    </a-scene>
-    <button id="music-button">Play Music</button>
+        <!--<a-sphere color="cyan" height="5" material="blending: additive;" glow="scale: 1.2;color: purple;c:0.2; p:1.5;" gps-entity-place="latitude: 52.321445; longitude: -1.973791;"></a-sphere>--->
+        <!--sd simulated glow on a sphere + animated pulse effect -->
+
+      <a-entity id="music-visualiser" gltf-model="#audio-bars" scale="0.2 0.2 0.2" animation-mixer look-at="#player" sound="src: #audio; autoplay: false; volume: 2;"></a-entity>
+      <a-sphere position="0 -0.7 0" radius="0.75" add-objects cloak> </a-sphere>
+      </a-scene>
+    </div>
+    <div class="footer">
+      <!--<button id="music-button">Play Music</button>--->
+      <input id="music-button" type="image" src="images/Play-Icon.svg" />
+      <button id="invest-button"><p style="white-space:pre">I N V E S T   N O W !</p></button>
+    </div>
   </body>
   <script>
     var playingMusic = false;
