@@ -136,21 +136,21 @@
     </script>
     <div class="header">
       <div class="left"><img id="logo" src="../images/LF-Logo.svg" alt="Living Future"></div>
-      <div class="right"><input id="back" type="image" src="../images/Back-BTN.svg" /></div>
+      <div class="right"><input id="back" type="image" onclick="location.href='../index.html';" src="../images/Back-BTN.svg" /></div>
     </div>
     <div class="frame">
-      <a-scene embedded style="height: 100%;" renderer="sortObjects: true;" vr-mode-ui="enabled: false" embedded arjs="sourceType: webcam; debugUIEnabled: false;" gps-entity-place="latitude: 52.321445; longitude: -1.973791;">
+      <a-scene embedded style="height: 100%;" renderer="sortObjects: true;" vr-mode-ui="enabled: false" embedded arjs="sourceType: webcam; debugUIEnabled: false;" gps-entity-place="latitude: 52.321407; longitude: -1.973523;">
         <a-assets>
           <a-asset-item id="audio-bars" src="../models/Audio-Bars.gltf"></a-asset-item>
           <audio id="audio" src="../music/Daft-Punk-End-of-Line.mp3" preload="auto"></audio>
         </a-assets>
 
-        <a-camera light="type: ambient; intensity: 1.2;" id="player" gps-camera rotation-reader> </a-camera>
+        <a-camera light="type: ambient; intensity: 1.2;" id="player" gps-camera="gpsMinDistance: 5" rotation-reader> </a-camera>
 
         <!--<a-sphere color="cyan" height="5" material="blending: additive;" glow="scale: 1.2;color: purple;c:0.2; p:1.5;" gps-entity-place="latitude: 52.321445; longitude: -1.973791;"></a-sphere>--->
         <!--sd simulated glow on a sphere + animated pulse effect -->
-
-      <a-entity id="music-visualiser" gltf-model="#audio-bars" scale="0.2 0.2 0.2" animation-mixer look-at="#player" sound="src: #audio; autoplay: false; volume: 2;"></a-entity>
+        <!-- look-at="#player" -->
+      <a-entity id="music-visualiser" gltf-model="#audio-bars" scale="0.2 0.2 0.2" animation-mixer sound="src: #audio; autoplay: false; volume: 2;"></a-entity>
       <a-sphere position="0 -0.7 0" radius="0.75" add-objects cloak> </a-sphere>
       </a-scene>
     </div>
@@ -175,12 +175,12 @@
         entity.setAttribute('animation-mixer','clip: stop;');
         entity.setAttribute('animation-mixer','clip: *;');
         //entity.components['animation-mixer'].setTime(0);
-        document.getElementById("music-button").src="images/Play-Icon.svg";
+        document.getElementById("music-button").src="../images/Play-Icon.svg";
         playingMusic = true;
       } else {
         entity.components.sound.stopSound();
         console.log(playingMusic);
-        document.getElementById("music-button").src="images/Mute-Icon.svg";
+        document.getElementById("music-button").src="../images/Mute-Icon.svg";
         playingMusic = false;
       }
     });
