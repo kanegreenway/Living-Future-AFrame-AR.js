@@ -8,7 +8,7 @@
       }
       .frame {
         width: 100%;
-        height: 79%;
+        height: 81%;
         border: none;
         overflow: auto;
       }
@@ -44,15 +44,29 @@
         border-bottom: 0.5px solid white;
         display: flex;
       }
-      .left {
-        height: 100%;
-        width: 80%;
-        position: relative;
+      @media only screen and (max-width: 650px) {
+        .left {
+          height: 100%;
+          width: 80%;
+          position: relative;
+        }
+        .right {
+          height: 100%;
+          width: 20%;
+          position: relative; 
+        }
       }
-      .right {
-        height: 100%;
-        width: 20%;
-        position: relative; 
+      @media only screen and (min-width: 651px) {
+        .left {
+          height: 100%;
+          width: 100%;
+          position: relative;
+        }
+        .right {
+          height: 100%;
+          width: 0%;
+          position: relative; 
+        }
       }
       #logo {
         height: auto;
@@ -69,21 +83,32 @@
         width: 100%;
         height: 9%;
         background-color: black;
-        position: relative;
+        position: absolute;
+        bottom: 0px;
       }
       #hashtag {
         font-family: Helvetica, Sans-Serif;
         font-size: 40px;
         color: white;
+        height: auto;
+        width: 90%;
+        margin: 0;
         position: absolute;
-        left: 20px;
-        margin-top: 25px;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
       }
       #footer-logo {
-        height: 100px;
-        float: right;
-        padding-right: 20px;
-        margin-top: 22px;
+        height: auto;
+        max-height: 60px;
+        width: 15%;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 90%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
       }
     </style>
   </head>
