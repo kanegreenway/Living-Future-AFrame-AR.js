@@ -20,7 +20,7 @@
                 <a-asset-item id="arrow-mtl" src="../models/Pointer.mtl"></a-asset-item>
             </a-asset>
 
-            <a-camera gps-projected-camera rotation-reader></a-camera>
+            <a-camera gps-projected-camera rotation-reader look-controls-enabled="false" arjs-look-controls="smoothingFactor: 0.1; reverseMouseDrag: false; touchEnabled: false"></a-camera>
             <a-entity id="music-visualiser" gltf-model="#spinning-orb" gps-projected-entity-place="latitude: 52.32140122831929; longitude: -1.9735346939476313;" light="type: ambient; intensity: 2;" position="0 2 0" scale="1 1 1" animation-mixer></a-entity>
             <!--<a-obj-model id="arrow-entity" gps-projected-entity-place="latitude: 52.32140122831929; longitude: -1.9735346939476313;" src="#arrow-obj" mtl="#arrow-mtl" position="0 5 0" scale="0.01 0.01 0.01"></a-obj-model>--->
             <!--<a-box gps-projected-entity-place='latitude: 52.32140122831929; longitude: -1.9735346939476313;' material='color: red' scale='2 2 2' position="0 5 0"></a-box>--->
