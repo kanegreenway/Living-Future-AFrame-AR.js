@@ -8,6 +8,7 @@
         <script src="../js/aframe-extras.min.js"></script>
     </head>
     <body style="margin: 0; overflow: hidden;">
+    <div class="frame">
     <a-scene embedded
         renderer="sortObjects: true;"
         vr-mode-ui="enabled: false"
@@ -17,6 +18,7 @@
                 <a-asset-item id="spinning-orb" src="../models/Spinning-Orb.gltf"></a-asset-item>
                 <a-asset-item id="arrow-obj" src="../models/Pointer.obj"></a-asset-item>
                 <a-asset-item id="arrow-mtl" src="../models/Pointer.mtl"></a-asset-item>
+                <audio id="audio" src="../music/Daft-Punk-End-of-Line.mp3" preload="auto"></audio>
             </a-asset>
 
             <a-camera fov="45" look-controls-enabled="false" arjs-look-controls="smoothingFactor: 1" gps-projected-camera rotation-reader></a-camera>
@@ -24,5 +26,6 @@
             <!--<a-obj-model id="arrow-entity" gps-projected-entity-place="latitude: 52.32140122831929; longitude: -1.9735346939476313;" src="#arrow-obj" mtl="#arrow-mtl" position="0 5 0" scale="0.01 0.01 0.01"></a-obj-model>--->
             <a-box gps-projected-entity-place='latitude: 52.32140122831929; longitude: -1.9735346939476313;' material='color: red' scale='2 2 2' position="0 5 0"></a-box>
         </a-scene>
+        </div>
     </body>
 </html>
