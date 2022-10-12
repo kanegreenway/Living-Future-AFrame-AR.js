@@ -9,7 +9,7 @@
         <script src="../js/aframe-extras.min.js"></script>
     </head>
     <body style="margin: 0; overflow: hidden;">
-        <a-scene embedded style="height: 100%;" vr-mode-ui="enabled: false" embedded arjs="sourceType: webcam; debugUIEnabled: false;">
+        <a-scene embedded style="height: 100%;" vr-mode-ui="enabled: false" embedded arjs="sourceType: webcam; debugUIEnabled: false;" loading-screen="dotsColor: white; backgroundColor: black">
             <a-assets>
               <a-asset-item id="arrow-obj" src="../models/Pointer.obj"></a-asset-item>
               <a-asset-item id="arrow-mtl" src="../models/Pointer.mtl"></a-asset-item>
@@ -17,8 +17,8 @@
               <audio id="audio" src="../music/Daft-Punk-End-of-Line.mp3" preload="auto"></audio>
             </a-assets>
     
-            <!--<a-camera light="type: ambient; intensity: 1.2;" id="player" gps-projected-camera rotation-reader look-controls-enabled='false' arjs-look-controls='smoothingFactor: 0.1; reverseMouseDrag:true; touchEnabled: false'><a-obj-model look-at="#music-visualiser" id="arrow-entity" src="#arrow-obj" mtl="#arrow-mtl" position="0 -0.12 -0.4 " scale="0.001 0.001 -0.001"></a-obj-model> </a-camera>--->
-            <a-camera id="player" gps-projected-camera rotation-reader><a-obj-model look-at="#music-visualiser" id="arrow-entity" src="#arrow-obj" mtl="#arrow-mtl" position="0 -0.12 -0.4 " scale="0.001 0.001 -0.001"></a-obj-model></a-camera>
+            <!--<a-camera id="player" gps-projected-camera rotation-reader><a-obj-model look-at="#music-visualiser" id="arrow-entity" src="#arrow-obj" mtl="#arrow-mtl" position="0 -0.12 -0.4 " scale="0.001 0.001 -0.001"></a-obj-model></a-camera></a-camera>--->
+            <a-camera gps-projected-camera rotation-reader id="player" look-controls-enabled="false" arjs-look-controls="smoothingFactor: 0.1"><a-obj-model look-at="#music-visualiser" id="arrow-entity" src="#arrow-obj" mtl="#arrow-mtl" position="0 -0.12 -0.4 " scale="0.001 0.001 -0.001"></a-obj-model></a-camera>
     
             <!--<a-sphere color="cyan" height="5" material="blending: additive;" glow="scale: 1.2;color: purple;c:0.2; p:1.5;" gps-entity-place="latitude: 52.321445; longitude: -1.973791;"></a-sphere>--->
             <!--sd simulated glow on a sphere + animated pulse effect -->
