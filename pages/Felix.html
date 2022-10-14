@@ -8,7 +8,8 @@
     <script src="../js/aframe-look-at-component.min.js"></script>
     <script src="../js/aframe-extras.min.js"></script>
     <style>
-      body {
+      body#main {
+        max-width: 100%;
         margin: 0px;
         margin-left: 0px !important;
       }
@@ -95,7 +96,7 @@
       }
     </style>
   </head>
-  <body>
+  <body id="main">
     <script>
       AFRAME.registerComponent('add-objects', {
       init: function() {
