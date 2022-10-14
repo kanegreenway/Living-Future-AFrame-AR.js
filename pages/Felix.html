@@ -153,6 +153,7 @@
         }
 
         function renderPlaces(places) {
+          setTimeout(function(){
             let scene = document.querySelector('a-scene');
 
             places.forEach((place) => {
@@ -175,6 +176,7 @@
 
                 scene.appendChild(model);
             });
+          }, 5000);
         }
 
 
