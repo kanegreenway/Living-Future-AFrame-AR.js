@@ -113,7 +113,7 @@
                 <a-assets>
                 <a-asset-item id="arrow-obj" src="../models/Pointer.obj"></a-asset-item>
                 <a-asset-item id="arrow-mtl" src="../models/Pointer.mtl"></a-asset-item>
-                <a-asset-item id="audio-bars" src="../models/Spinning-Orb.gltf"></a-asset-item>
+                <a-asset-item id="spinning-orb" src="../models/Spinning-Orb.gltf"></a-asset-item>
                 <audio id="audio" src="../music/Daft-Punk-End-of-Line.mp3" preload="auto"></audio>
                 </a-assets>
         
@@ -122,10 +122,10 @@
                 <!--<a-sphere color="cyan" height="5" material="blending: additive;" glow="scale: 1.2;color: purple;c:0.2; p:1.5;" gps-entity-place="latitude: 52.321445; longitude: -1.973791;"></a-sphere>--->
                 <!--sd simulated glow on a sphere + animated pulse effect -->
                 <!-- look-at="#player" -->
-            <a-entity id="music-visualiser" gltf-model="#audio-bars" scale="1 1 1" animation-mixer sound="src: #audio; autoplay: false; volume: 2;" gps-entity-place="latitude: 52.32140122831929; longitude: -1.9735346939476313;"></a-entity>
-            <a-box gps-entity-place='latitude: 52.32140122831929; longitude: -1.9735346939476313;' material='color: red' scale='2 2 2' position="0 5 0"></a-box>
+            <a-entity id="music-visualiser" gltf-model="#spinning-orb" scale="1 1 1" animation-mixer sound="src: #audio; autoplay: false; volume: 2;" gps-projected-entity-place="latitude: 52.32140122831929; longitude: -1.9735346939476313;"></a-entity>
+            <a-box gps-projected-entity-place='latitude: 52.32140122831929; longitude: -1.9735346939476313;' material='color: red' scale='2 2 2' position="0 5 0"></a-box>
 
-            <a-camera gps-camera="accelerationToMove: 1.0" rotation-reader><a-obj-model look-at="#music-visualiser" id="arrow-entity" src="#arrow-obj" mtl="#arrow-mtl" position="0 -0.12 -0.4 " scale="0.001 0.001 -0.001"></a-obj-model></a-camera>
+            <a-camera gps-projected-camera rotation-reader><a-obj-model look-at="#music-visualiser" id="arrow-entity" src="#arrow-obj" mtl="#arrow-mtl" position="0 -0.12 -0.4 " scale="0.001 0.001 -0.001"></a-obj-model></a-camera>
             </a-scene>
         </div>
         <div class="footer">
