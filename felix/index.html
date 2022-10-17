@@ -102,6 +102,19 @@
                 cursor: pointer;
             }
         </style>
+        <script>
+            AFRAME.registerComponent('modify-materials', {
+                init: function () {
+                this.el.addEventListener('model-loaded', () => {
+                    const obj = this.el.getObject3D('mesh');
+                    obj.traverse(node => {
+                        node.material.color.set('#00fffb');
+                        node.material.emissive.set('#00fffb')
+                    });
+                });
+                }
+            });
+        </script>
     </head>
     <body style="margin: 0; overflow: hidden;">
         <div class="header">
@@ -114,7 +127,7 @@
                 <a-asset-item id="arrow-obj" src="../models/Pointer.obj"></a-asset-item>
                 <a-asset-item id="arrow-mtl" src="../models/Pointer.mtl"></a-asset-item>
                 <a-asset-item id="spinning-orb" src="../models/Spinning-Orb.gltf" preload="auto"></a-asset-item>
-                <audio id="audio" src="../music/Daft-Punk-End-of-Line.mp3" preload="auto"></audio>
+                <audio id="audio" src="../music/Felix-Meritis.mp3" preload="auto"></audio>
                 </a-assets>
         
                 <!--<a-camera id="player" gps-projected-camera rotation-reader><a-obj-model look-at="#music-visualiser" id="arrow-entity" src="#arrow-obj" mtl="#arrow-mtl" position="0 -0.12 -0.4 " scale="0.001 0.001 -0.001"></a-obj-model></a-camera></a-camera>--->
@@ -123,9 +136,10 @@
                 <!--sd simulated glow on a sphere + animated pulse effect -->
                 <!-- look-at="#player" -->
             <a-entity id="music-visualiser" gltf-model="url(../models/Spinning-Orb.gltf)" scale="1 1 1" gps-projected-entity-place="latitude: 52.32140122831929; longitude: -1.9735346939476313;" animation-mixer sound="src: #audio; autoplay: false; volume: 2;"></a-entity>
-            <a-box gps-projected-entity-place='latitude: 52.32140122831929; longitude: -1.9735346939476313;' material='color: red' scale='2 2 2' position="0 5 0"></a-box>
-
-            <a-camera gps-projected-camera rotation-reader><a-obj-model look-at="#music-visualiser" id="arrow-entity" src="#arrow-obj" mtl="#arrow-mtl" position="0 -0.12 -0.4 " scale="0.001 0.001 -0.001"></a-obj-model></a-camera>
+            <a-entity light="type: directional; color: #EEE; intensity: 1" position="-1 1 0"></a-entity>
+            <a-entity light="type: point; intensity: 3; distance: 50; decay: 2; color: #bd00ba;" position="-1 -0.6 0"></a-entity>
+            <a-entity light="type: point; intensity: 3; distance: 50; decay: 2; color: #00b3fa;" position="1 0.6 0"></a-entity>
+            <a-camera gps-projected-camera rotation-reader><a-obj-model look-at="#music-visualiser" id="arrow-entity" src="#arrow-obj" mtl="#arrow-mtl" position="0 -0.12 -0.4 " scale="0.001 0.001 -0.001" modify-materials></a-obj-model></a-camera>
             </a-scene>
         </div>
         <div class="footer">

@@ -108,7 +108,7 @@
       init: function() {
         let thisMesh = this.el.getObject3D('mesh')
 
-        let boxGeometry = new THREE.BoxGeometry(30, 1.5, 30);
+        let boxGeometry = new THREE.BoxGeometry(150, 1.6, 150);
 
         let boxMaterial = new THREE.MeshBasicMaterial({
           color: "#FF00FF"
@@ -137,6 +137,18 @@
         }
       }
     })
+
+    AFRAME.registerComponent('modify-materials', {
+      init: function () {
+      this.el.addEventListener('model-loaded', () => {
+        const obj = this.el.getObject3D('mesh');
+        obj.traverse(node => {
+          node.material.color.set('#00fffb');
+          node.material.emissive.set('#00fffb')
+          });
+        });
+      }
+    });
     </script>
     <div class="header">
       <div class="left"><img id="logo" src="../images/LF-Logo.svg" alt="Living Future"></div>
@@ -153,10 +165,9 @@
         <!--<a-sphere color="cyan" height="5" material="blending: additive;" glow="scale: 1.2;color: purple;c:0.2; p:1.5;" gps-entity-place="latitude: 52.321445; longitude: -1.973791;"></a-sphere>--->
         <!--sd simulated glow on a sphere + animated pulse effect -->
         <!-- look-at="#player" -->
-        <a-entity id="music-visualiser" gltf-model="#audio-bars" scale="0.2 0.2 0.2" gps-projected-entity-place="latitude: 52.32140122831929; longitude: -1.9735346939476313;" animation-mixer sound="src: #audio; autoplay: false; volume: 2;"></a-entity>
-        <a-sphere position="0 -0.6 0" radius="0.75" add-objects cloak> </a-sphere>
+        <a-entity id="music-visualiser" gltf-model="#audio-bars" scale="0.2 0.2 0.2" gps-projected-entity-place="latitude: 52.32140122831929; longitude: -1.9735346939476313;" animation-mixer sound="src: #audio; autoplay: false; volume: 2;"><a-sphere position="0 -0.6 0" radius="0.75" add-objects cloak> </a-sphere></a-entity>
 
-        <a-camera gps-projected-camera rotation-reader><a-obj-model look-at="#music-visualiser" id="arrow-entity" src="#arrow-obj" mtl="#arrow-mtl" position="0 -0.12 -0.4 " scale="0.001 0.001 -0.001"></a-obj-model></a-camera>
+        <a-camera gps-projected-camera rotation-reader><a-obj-model look-at="#music-visualiser" id="arrow-entity" src="#arrow-obj" mtl="#arrow-mtl" position="0 -0.12 -0.4 " scale="0.001 0.001 -0.001" modify-materials></a-obj-model></a-camera>
       </a-scene>
     </div>
     <div class="footer">
