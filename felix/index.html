@@ -101,6 +101,16 @@
                 border-radius: 15px;
                 cursor: pointer;
             }
+            @media all and (orientation:landscape) {
+                #popup {
+                    position: absolute;
+                    height: 100%;
+                    width: 100%;
+                    top: 0px;
+                    left: 0px;
+                    background-color: yellow;
+                }
+            }
         </style>
         <script>
             AFRAME.registerComponent('modify-materials', {
@@ -117,6 +127,9 @@
         </script>
     </head>
     <body style="margin: 0; overflow: hidden;">
+        <div class="popup">
+            <p>Hey</p>
+        </div>
         <div class="header">
             <div class="left"><img id="logo" src="../images/LF-Logo.svg" alt="Living Future"></div>
             <div class="right"><input id="back" type="image" onclick="location.href='..';" src="../images/Back-BTN.svg" /></div>
