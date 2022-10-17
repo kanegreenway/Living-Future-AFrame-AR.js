@@ -87,17 +87,16 @@
       #invest-button {
           height: 70%;
           width: 220px;
-          right: 20px;
           margin: 0;
           position: absolute;
           top: 50%;
           transform: translateY(-50%);
-          background-color: black;
-          color: white;
+          background-color: white;
+          letter-spacing: 2px;
+          color: black;
           font-family: Helvetica, Sans-Serif;
           font-size: 16px;
           border: 2px solid white;
-          border-radius: 15px;
           cursor: pointer;
       }
       #mob-popup {
@@ -195,7 +194,7 @@
       <div class="right"><input id="back" type="image" onclick="location.href='..';" src="../images/Back-BTN.svg" /></div>
     </div>
     <div class="frame">
-      <a-scene embedded style="height: 100%;" vr-mode-ui="enabled: false" embedded arjs="sourceType: webcam; debugUIEnabled: false;" loading-screen="dotsColor: white; backgroundColor: black">
+      <a-scene renderer="logarithmicDepthBuffer: true;" embedded style="height: 100%;" vr-mode-ui="enabled: false" embedded arjs="sourceType: webcam; debugUIEnabled: false;" loading-screen="dotsColor: white; backgroundColor: black">
         <a-assets>
           <a-asset-item id="arrow-obj" src="../models/Pointer.obj"></a-asset-item>
           <a-asset-item id="arrow-mtl" src="../models/Pointer.mtl"></a-asset-item>
@@ -213,7 +212,8 @@
     <div class="footer">
       <!--<button id="music-button">Play Music</button>--->
       <input id="music-button" type="image" src="../images/Mute-Icon.svg" />
-      <button id="invest-button"><p style="white-space:pre; margin-top: 7%;">I N V E S T   N O W !</p></button>
+      <button id="invest-button" style="right: 220px;"><p style="white-space:pre; margin-top: 7%;">B U Y   N F T</p></button>
+      <button id="invest-button" style="right: 20px;"><p style="white-space:pre; margin-top: 7%;">P H A S E   2</p></button>
     </div>
   </body>
   <script>
