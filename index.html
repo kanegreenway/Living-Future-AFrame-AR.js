@@ -1,8 +1,6 @@
 <html>
   <head>
     <title>Living Future AR</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
@@ -147,6 +145,13 @@
           width: auto;
       }
     </style>
+    <script>
+      const element = document.createElement('meta');
+      element.name = "viewport";
+      element.content = "width=device-width, initial-scale=1";
+      document.getElementsByTagName('head')[0].appendChild(element);
+    </script>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
   </head>
   <body>
     <div class="header">
@@ -183,7 +188,6 @@
               <img class="bottom-img" src="http://livingfuture.xyz/wp-content/uploads/2022/10/meta-mooch.svg" title="meta-mooch">
           </a>
       </div>
-
   </div>
   </body>
 </html>
