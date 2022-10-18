@@ -135,6 +135,23 @@
           line-height: 80vh;
           padding: 10px;
       }
+      .a-dialog {
+          background-color: black;
+      }
+      .a-dialog-allow-button {
+          background-color: white;
+          color: black;
+      }
+
+      .a-dialog-deny-button {
+          background-color: white;
+          color: black;
+      }
+
+      .a-dialog-ok-button {
+          background-color: white;
+          color: black;
+      }
   </style>
   </head>
   <body id="main">
@@ -210,7 +227,14 @@
         <!--<a-sphere color="cyan" height="5" material="blending: additive;" glow="scale: 1.2;color: purple;c:0.2; p:1.5;" gps-entity-place="latitude: 52.321445; longitude: -1.973791;"></a-sphere>--->
         <!--sd simulated glow on a sphere + animated pulse effect -->
         <!-- look-at="#player" -->
-        <a-entity id="music-visualiser" gltf-model="#audio-bars" scale="0.2 0.2 0.2" gps-projected-entity-place="latitude: 52.32140122831929; longitude: -1.9735346939476313;" animation-mixer sound="src: #audio; autoplay: false; volume: 2;"><a-sphere position="0 -0.6 0" radius="0.75" add-objects cloak> </a-sphere></a-entity>
+        <a-entity id="music-visualiser" gltf-model="#audio-bars" scale="0.2 0.2 0.2" gps-projected-entity-place="latitude: 52.32140122831929; longitude: -1.9735346939476313;" animation-mixer sound="src: #audio; autoplay: false; volume: 2;"><a-sphere position="0 -0.6 0" radius="0.75" add-objects cloak> </a-sphere>
+          <a-entity light="type: ambient; color: #EEE; intensity: 1.5" position="-1 1 0"></a-entity>
+          <a-entity light="type: point; intensity: 1; distance: 50; decay: 10; color: #00b3fa;" position="-4 2.3 0"></a-entity>
+          <a-entity light="type: point; intensity: 1; distance: 50; decay: 10; color: #00b3fa;" position="-1 2.3 0"></a-entity>
+          <a-entity light="type: point; intensity: 1; distance: 50; decay: 10; color: #00b3fa;" position="2 2.3 0"></a-entity>
+          <a-entity light="type: point; intensity: 1; distance: 50; decay: 10; color: #00b3fa;" position="5 2.3 0"></a-entity>
+          <a-entity light="type: point; intensity: 1; distance: 50; decay: 10; color: #00b3fa;" position="8 2.3 0"></a-entity>
+        </a-entity>
 
         <a-camera gps-projected-camera rotation-reader><a-obj-model look-at="#music-visualiser" id="arrow-entity" src="#arrow-obj" mtl="#arrow-mtl" position="0 -0.12 -0.4 " scale="0.001 0.001 -0.001" modify-materials></a-obj-model></a-camera>
       </a-scene>
