@@ -218,8 +218,8 @@
     <div class="footer">
       <!--<button id="music-button">Play Music</button>--->
       <input id="music-button" type="image" src="../images/Mute-Icon.svg" />
-      <button id="invest-button" style="right: 170px;"><p style="white-space:pre;">B U Y   N F T</p></button>
-            <button id="invest-button" style="right: 20px;"><p style="white-space:pre;">P H A S E   2</p></button>
+      <button id="invest-button" style="right: 170px;"><img style="height: 100%; width: 130px;" src="https://studio.nmkr.io/images/buttons/paybutton_3_2.svg" onclick="javascript:openPaymentWindow()"></button>
+      <button id="invest-button" style="right: 20px;"><p style="white-space:pre;">P H A S E   2</p></button>
     </div>
   </body>
   <script>
@@ -251,6 +251,30 @@
             }
         }
         window.onresize = changeSize;
+
+    //Payment
+    function openPaymentWindow() {
+        const paymentUrl = "https://pay.nmkr.io/?p=b38e565fdeeb40208e9c4df72aa5c7d8&c=1";
+        // Specify the popup width and height
+        const popupWidth = 500;
+        const popupHeight = 700;
+        // Calculate the center of the screen
+        const left = window.top.outerWidth / 2 + window.top.screenX - ( popupWidth / 2);
+        const top = window.top.outerHeight / 2 + window.top.screenY - ( popupHeight / 2);
+        const popup =  window.open(paymentUrl, "NFT-MAKER PRO Payment Gateway",  `popup=1, location=1, width=${popupWidth}, height=${popupHeight}, left=${left}, top=${top}`);
+        // Show dim background
+        document.body.style = "background: rgba(0, 0, 0, 0.5)";
+        // Continuously check whether the popup has been closed
+        const backgroundCheck = setInterval(function () {
+            if(popup.closed) {
+                clearInterval(backgroundCheck);
+                console.log("Popup closed");
+                // Remove dim background
+                document.body.style = "";
+            }
+        }, 1000);
+    }
+
     //Music
     var playingMusic = false;
     document.querySelector('#music-button').addEventListener('click', function (evt) {
