@@ -1,7 +1,11 @@
 <html>
   <head>
     <title>Living Future AR</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
       body {
@@ -10,9 +14,11 @@
         height: 100% !important;
       }
       h3 {
-        font-family: Helvetica, Sans-Serif;
+        font-family: 'Roboto Mono', Helvetica, Serif;
         font-size: 35px;
         text-align: center;
+        font-weight: 300;
+        letter-spacing: 2px;
       }
       .frame {
         width: 100%;
@@ -22,7 +28,7 @@
       }
       .attraction {
         background-color: black;
-        height: 700px;
+        height: 400px;
         width: 85%;
         max-width: 800px;
         margin-left: auto;
@@ -89,53 +95,57 @@
         transform: translate(-50%, -50%);
       }
       .footer {
-                width: 100%;
-                height: 9%;
-                background-color: black;
-                padding-top: 25px;
-                border-top: 0.5px solid white;
-            }
-            .left-foot {
-                width: 57%;
-                position: relative;
-            }
-            .right-foot {
-                width: 43%;
-                position: relative;
-                text-align: right;
-            }
+          width: 100%;
+          height: 9%;
+          background-color: black;
+          padding-top: 15px;
+          padding-bottom: 10px;
+          border-top: 0.5px solid white;
+          display: block;
+      }
+      .left-foot {
+          width: 50%;
+          position: relative;
+      }
+      .right-foot {
+          width: 50%;
+          position: relative;
+          text-align: right;
+      }
       .bottom-hashtag {
-                color: white;
-                font-family: Helvetica, Sans-Serif;
-                font-size: 14px;
-                padding-left: 20px;
-            }
-            .socials {
-                background-color: #ea2c59;
-                height: 32px;
-                width: 32px;
-                border: 0px;
-                border-radius: 3px;
-                margin-right: 8px;
-                vertical-align: top;
-            }
-            .socials:hover {
-                cursor: pointer;
-            }
-            .bottom {
-                text-align: center;
-            }
-            .bottom-dark {
-                color: grey;
-                font-family: Helvetica, Sans-Serif;
-                font-size: 12px;
-                padding-top: 15px;
-                margin-bottom: 0px;
-            }
-            .bottom-img {
-                height: 13px;
-                width: auto;
-            }
+          color: white;
+          font-family: Helvetica, Sans-Serif;
+          font-size: 14px;
+          padding-left: 20px;
+      }
+      .socials {
+          background-color: #ea2c59;
+          height: 32px;
+          width: 32px;
+          border: 0px;
+          border-radius: 3px;
+          margin-right: 8px;
+          vertical-align: top;
+          min-width: 32px;
+          min-height: 32px;
+      }
+      .socials:hover {
+          cursor: pointer;
+      }
+      .bottom {
+          text-align: center;
+      }
+      .bottom-dark {
+          color: grey;
+          font-family: Helvetica, Sans-Serif;
+          font-size: 12px;
+          padding-top: 15px;
+          margin-bottom: 0px;
+      }
+      .bottom-img {
+          height: 13px;
+          width: auto;
+      }
     </style>
   </head>
   <body>
@@ -173,6 +183,7 @@
               <img class="bottom-img" src="http://livingfuture.xyz/wp-content/uploads/2022/10/meta-mooch.svg" title="meta-mooch">
           </a>
       </div>
+
   </div>
   </body>
 </html>
