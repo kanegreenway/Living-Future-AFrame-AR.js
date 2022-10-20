@@ -2,22 +2,35 @@
   <head>
     <title>Living Future AR</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
       body {
         margin: 0px 0px 0px 0px !important;
         width: 100% !important;
         height: 100% !important;
       }
+      h3 {
+        font-family: 'Roboto Mono', Helvetica, Serif;
+        font-size: 35px;
+        text-align: center;
+        font-weight: 300;
+        letter-spacing: 2px;
+      }
       .frame {
         width: 100%;
-        height: 81%;
+        height: 79%;
         border: none;
         overflow: auto;
       }
       .attraction {
         background-color: black;
-        height: 700px;
+        height: 375px;
         width: 85%;
+        max-width: 800px;
         margin-left: auto;
         margin-right: auto;
         margin-top: 25px;
@@ -82,35 +95,62 @@
         transform: translate(-50%, -50%);
       }
       .footer {
-        width: 100%;
-        height: 9%;
-        background-color: black;
-        position: absolute;
-        bottom: 0px;
+          width: 100%;
+          height: 10%;
+          background-color: black;
+          padding-top: 15px;
+          display: block;
+          position: absolute;
+          bottom: 0px;
+          padding-bottom: 8px;
       }
-      #hashtag {
-        font-family: Helvetica, Sans-Serif;
-        font-size: 40px;
-        color: white;
-        height: auto;
-        width: 90%;
-        margin: 0;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
+      .left-foot {
+          width: 50%;
+          position: relative;
       }
-      #footer-logo {
-        height: auto;
-        max-height: 60px;
-        width: 15%;
-        margin: 0;
-        position: absolute;
-        top: 50%;
-        left: 90%;
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
+      .right-foot {
+          width: 50%;
+          position: relative;
+          text-align: right;
+      }
+      .bottom-hashtag {
+          color: white;
+          font-family: Helvetica, Sans-Serif;
+          font-size: 14px;
+          padding-left: 20px;
+      }
+      .socials {
+          background-color: #ea2c59;
+          height: 32px;
+          width: 32px;
+          border: 0px;
+          border-radius: 3px;
+          margin-right: 8px;
+          vertical-align: top;
+          min-width: 32px;
+          min-height: 32px;
+      }
+      .socials:hover {
+          cursor: pointer;
+      }
+      .bottom {
+          text-align: center;
+      }
+      .bottom-dark {
+          color: grey;
+          font-family: Helvetica, Sans-Serif;
+          font-size: 12px;
+          padding-top: 0px;
+          margin-bottom: 0px;
+          margin-top: 0px;
+      }
+      .bottom-img {
+          height: 13px;
+          width: auto;
+      }
+      button {
+        padding-left: 0px;
+        padding-right: 0px;
       }
     </style>
   </head>
@@ -120,20 +160,35 @@
       <div class="right"></div>
     </div>
     <div class="frame">
-      <br>
-      <div onclick="location.href='pages/Melkweg.html';" class="attraction">
+      <h3>Choose Your Location:</h3>
+      <div onclick="location.href='melkweg';" class="attraction">
         <img class="attraction-image" src="images/melkweg.jpg" alt="Melkweg">
         <div class="attraction-footer"><p style="white-space:pre;padding-left: 20px;">@ M E L K W E G</p></div>
       </div>
-      <div onclick="location.href='pages/Felix.html';" class="attraction">
+      <div onclick="location.href='felix';" class="attraction">
         <img class="attraction-image" src="images/felix.jpg" alt="Felix Meritis">
         <div class="attraction-footer"><p style="white-space:pre;padding-left: 20px;">@ F E L I X   M E R I T I S</p></div>
       </div>
-      <br><br><br>
+      <br><br>
     </div>
+    
     <div class="footer">
-      <p id="hashtag"># L I V I N G F U T U R E</p>
-      <img id="footer-logo" src="images/LF-Badge.svg" alt="Living Future">
-    </div>
+      <div style="display: flex;">
+          <div class="left-foot">
+              <p class="bottom-hashtag"># L I V I N G F U T U R E</p>
+          </div>
+          <div class="right-foot">
+              <a href="https://www.instagram.com/livingfuture_uk/"><button class="socials"><i class="fa-brands fa-instagram" style="font-size:16px;color:white;"></i></button></a>
+              <a href="https://soundcloud.com/livingfutureuk"><button class="socials" style="background-color: #ff8800;"><i class="fa-brands fa-soundcloud" style="font-size:15px;color:white;"></i></button></a>
+              <a href="https://www.tiktok.com/@livingfutureuk"><button class="socials" style="margin-right: 20px;"><i class="fa-brands fa-tiktok" style="font-size:16px;color:white;"></i></button></a>
+          </div>
+      </div>
+      <div class="bottom">
+          <p class="bottom-dark">Website, Augmented Reality, and NFTs by</p>
+          <a href="https://www.metamooch.io">
+              <img class="bottom-img" src="http://livingfuture.xyz/wp-content/uploads/2022/10/meta-mooch.svg" title="meta-mooch">
+          </a>
+      </div>
+  </div>
   </body>
 </html>
